@@ -29,16 +29,9 @@ public class Ball : MonoBehaviour
     {
         isGrounded = true;
 
-        if(collision.gameObject.name.Contains("Spike"))
+        if(collision.gameObject.CompareTag("Enemy"))
         {
-            for(int i = 0; i < 5; i++)
-            {
-                var offset = Random.insideUnitSphere;
-                //deadPiece.GetComponent<SpriteRenderer>().color
-                Instantiate(deadPiece, transform.position + offset, transform.rotation);
-            }
-            Destroy(gameObject);
-            GameManager.instance.Lose();         
+            Die();      
         }
     }
 
@@ -50,5 +43,17 @@ public class Ball : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameManager.instance.Win();
+    }
+
+    void Die()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            var offset = Random.insideUnitSphere;
+            //deadPiece.GetComponent<SpriteRenderer>().color
+            Instantiate(deadPiece, transform.position + offset, transform.rotation);
+        }
+        Destroy(gameObject);
+        GameManager.instance.Lose();
     }
 }
