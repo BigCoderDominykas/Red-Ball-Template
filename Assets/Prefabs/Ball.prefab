@@ -248,7 +248,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpSpeed: 7
+  moveForce: 500
   deadPiece: {fileID: 3811349412767196701, guid: 3bd2745d15227844daecf72f10df9d3d, type: 3}
+  gameManager: {fileID: 4003173624002885625, guid: cd36092e9b39f4a4aa1234ab930e63a9, type: 3}
 --- !u!1 &4454408139135515027
 GameObject:
   m_ObjectHideFlags: 0
